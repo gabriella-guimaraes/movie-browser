@@ -1,7 +1,7 @@
 export function HomeComponent () {
     return (
         <div className="Home-Component">
-            <p>Home component works!</p>
+            <h2>Home component works!</h2>
         </div>
     );
 }
