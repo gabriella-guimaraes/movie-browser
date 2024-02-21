@@ -36,7 +36,7 @@ export function NavbarComponent () {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link disabled" to="gosomewhere">
-                                Disabled
+                                Coming soon
                             </Link>
                         </li>
                     </ul>
