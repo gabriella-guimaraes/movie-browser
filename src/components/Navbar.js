@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 export function NavbarComponent () {
     return (
         <nav className="navbar navbar-expand-lg bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="gosomewhere">
+                <Link className="navbar-brand" to="gosomewhere">
                     Movie Browser
-                </a>
+                </Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -19,23 +21,23 @@ export function NavbarComponent () {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a
+                            <Link
                                 className="nav-link active"
                                 aria-current="page"
-                                href="gosomewhere"
+                                to="/"
                             >
                                 Home
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="gosomewhere">
-                                Link
-                            </a>
+                            <Link className="nav-link" to="/about">
+                                About
+                            </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link disabled" href="gosomewhere">
+                            <Link className="nav-link disabled" to="gosomewhere">
                                 Disabled
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
