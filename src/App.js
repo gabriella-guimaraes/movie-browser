@@ -12,7 +12,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchText, setSearchText] = useState('');
 
-  // pegue searchText como prop e separe os requests da API em um arquivop separado!!
+  // TO-DO: pegue searchText como prop e separe os requests da API em um arquivop separado!!
 
   useEffect(() => {
     if (searchText) {
@@ -20,7 +20,7 @@ function App() {
         method: 'GET',
         headers: {
           accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNmVmNDg5MTYzOGVlZGM2YjViYjBhZjUyZDk1MGU4ZCIsInN1YiI6IjY1ZDkzNTA2YjA0NjA1MDE0OTM0NTJiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.74QHjseWubVgSsgyfA-AYJZDh3Rq0DbH9xA0gvRdNfo'
+          Authorization: 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNmVmNDg5MTYzOGVlZGM2YjViYjBhZjUyZDk1MGU4ZCIsInN1YiI6IjY1ZDkzNTA2YjA0NjA1MDE0OTM0NTJiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.74QHjseWubVgSsgyfA-AYJZDh3Rq0DbH9xA0gvRdNfo'
         }
       };
       
