@@ -12,6 +12,8 @@ function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchText, setSearchText] = useState('');
 
+  // pegue searchText como prop e separe os requests da API em um arquivop separado!!
+
   useEffect(() => {
     if (searchText) {
       const options = {
