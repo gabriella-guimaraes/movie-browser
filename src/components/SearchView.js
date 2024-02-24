@@ -4,7 +4,10 @@ import { MovieCardComponent } from "./MovieCard";
 export function SearchViewComponent({ keyword, searchResults }) {
   const tittle = `You are searching for ${keyword}`;
 
-  const movieResults = searchResults.map((obj, i) => {
+  // const movieResults = searchResults.map((obj, i) => {
+  //   return <MovieCardComponent movie={obj} key={i} />;
+  // });
+  const movieResults = searchResults?.map((obj, i) => {
     return <MovieCardComponent movie={obj} key={i} />;
   });
   return (
@@ -18,5 +21,3 @@ export function SearchViewComponent({ keyword, searchResults }) {
     </div>
   );
 }
-
-//<div key={obj.id}>{obj.original_title}</div>
