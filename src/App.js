@@ -13,22 +13,24 @@ function App() {
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    console.log(searchText, "is the search text");
-    const options = {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNmVmNDg5MTYzOGVlZGM2YjViYjBhZjUyZDk1MGU4ZCIsInN1YiI6IjY1ZDkzNTA2YjA0NjA1MDE0OTM0NTJiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.74QHjseWubVgSsgyfA-AYJZDh3Rq0DbH9xA0gvRdNfo'
-      }
-    };
+    if (searchText) {
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNmVmNDg5MTYzOGVlZGM2YjViYjBhZjUyZDk1MGU4ZCIsInN1YiI6IjY1ZDkzNTA2YjA0NjA1MDE0OTM0NTJiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.74QHjseWubVgSsgyfA-AYJZDh3Rq0DbH9xA0gvRdNfo'
+        }
+      };
+      
+      fetch(`https://api.themoviedb.org/3/search/movie?query=${searchText}&include_adult=false&language=en-US&page=1`, options)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          setSearchResults(data.results)
+        })
+        .catch(err => console.error(err));
+    }
     
-    fetch(`https://api.themoviedb.org/3/search/movie?query=${searchText}&include_adult=false&language=en-US&page=1`, options)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        setSearchResults(data.results)
-      })
-      .catch(err => console.error(err));
   }, [searchText]);
 
 
