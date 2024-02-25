@@ -31,7 +31,7 @@ function App() {
   return (
     <div>
       <NavbarComponent searchText={searchText} setSearchText={setSearchText}/>
-      {/* <Router> */}
+
         <Routes>
           <Route exact path="/" element={<HomeComponent/>}/>
           <Route path="/about" element={<AboutViewComponent/>} />
@@ -40,7 +40,6 @@ function App() {
           <Route path="/404" element={<NotFoundViewComponent/>} />
           <Route path="*" element={<Navigate to='/404' />}/>
         </Routes>
-      {/* </Router> */}
       
     </div>
   );

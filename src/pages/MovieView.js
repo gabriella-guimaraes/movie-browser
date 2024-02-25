@@ -11,7 +11,6 @@ export function MovieViewComponent () {
     const API_KEY = "0cbfd4617462850762ba0459d1ed266f"
 
     useEffect(() => {
-        console.log("API request goes here lol", id);
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`)
             .then(response => response.json())
             .then(data => {
@@ -25,8 +24,6 @@ export function MovieViewComponent () {
             return <HeroComponent text="Loading..." />
         }
         if(movieDetails) {
-            console.log(movieDetails)
-            //TO-DO: criar uma tratativa para filmes que não tenham imagem de poster
             const posterUrl = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
             const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`
 
