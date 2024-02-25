@@ -7,10 +7,11 @@ export function NavbarComponent({searchText, setSearchText}) {
     setSearchText(e.target.value);
   };
 
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="gosomewhere">
+        <Link className="navbar-brand" to="/">
           Movie Browser
         </Link>
         <button
@@ -45,13 +46,20 @@ export function NavbarComponent({searchText, setSearchText}) {
           <form className="d-flex" role="search">
             <input
               className="form-control me-2"
+              id="searchField"
               type="search"
               placeholder="Search"
               aria-label="Search"
               value={searchText}
               onChange={updateSearchText}
             />
-            <button className="btn btn-outline-success" type="submit">
+            <button 
+            className="btn btn-outline-success" 
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("searchField").value = "";
+            }}>
               Search
             </button>
           </form>

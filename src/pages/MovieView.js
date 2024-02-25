@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 
 export function MovieViewComponent () {
     const { id } = useParams();
-    console.log(id);
 
     const [movieDetails, setMovieDetails] = useState({});
     const [isLoading, setIsLoading] = useState(true);
