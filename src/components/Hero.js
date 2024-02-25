@@ -1,5 +1,4 @@
 export function HeroComponent ({text, backdrop}) {
-    console.log(backdrop);
     return (
         <div>
             <header className="bg-dark text-white p-5 hero-container">

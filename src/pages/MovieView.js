@@ -1,4 +1,4 @@
-import { HeroComponent } from "./Hero";
+import { HeroComponent } from "../components/Hero";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -30,13 +30,22 @@ export function MovieViewComponent () {
             const posterUrl = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
             const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`
 
+            function poster (movieDetails) {
+                if(movieDetails.poster_path){
+                    return <img src={posterUrl} alt="..." className="img-fluid shadow rounded" />
+                }
+                if(movieDetails.poster_path == null){
+                    return <img src="../Images/no-poster-found.png" className="img-fluid shadow rounded" alt="Poster not found" />
+                }
+            }
+
             return(
                 <>
                     <HeroComponent text={movieDetails.original_title} backdrop={backdropUrl}/>
                     <div className="container my-5">
                         <div className="row">
                             <div className="col-md-3">
-                                <img src={posterUrl} alt="..." className="img-fluid shadow rounded" />
+                                {poster(movieDetails)}
                             </div>
                             <div className="col-md-9">
                                 <h2>{movieDetails.original_title}</h2>

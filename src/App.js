@@ -1,19 +1,18 @@
 import './App.css';
 import { NavbarComponent } from './components/Navbar';
-import { Router, Route, Routes } from 'react-router-dom';
+import { Router, Route, Routes, Navigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import { HomeComponent } from './components/Home';
-import { AboutViewComponent } from './components/AboutView';
-import { SearchViewComponent } from './components/SearchView';
-import { MovieViewComponent } from './components/MovieView';
+import { HomeComponent } from './pages/Home';
+import { AboutViewComponent } from './pages/AboutView';
+import { SearchViewComponent } from './pages/SearchView';
+import { MovieViewComponent } from './pages/MovieView';
+import { NotFoundViewComponent } from './pages/NotFoundView';
 
 
 function App() {
 
   const [searchResults, setSearchResults] = useState([]);
   const [searchText, setSearchText] = useState('');
-
-  // TO-DO: pegue searchText como prop e separe os requests da API em um arquivop separado!!
 
   useEffect(() => {
     const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
@@ -38,6 +37,8 @@ function App() {
           <Route path="/about" element={<AboutViewComponent/>} />
           <Route path="/search" element={<SearchViewComponent keyword={searchText} searchResults={searchResults}/>} />
           <Route path="/movies/:id" element={<MovieViewComponent/>} />
+          <Route path="/404" element={<NotFoundViewComponent/>} />
+          <Route path="*" element={<Navigate to='/404' />}/>
         </Routes>
       {/* </Router> */}
       
