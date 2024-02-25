@@ -28,9 +28,11 @@ export function MovieViewComponent () {
             console.log(movieDetails)
             //TO-DO: criar uma tratativa para filmes que não tenham imagem de poster
             const posterUrl = `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`
+            const backdropUrl = `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`
+
             return(
                 <>
-                    <HeroComponent text={movieDetails.original_title} />
+                    <HeroComponent text={movieDetails.original_title} backdrop={backdropUrl}/>
                     <div className="container my-5">
                         <div className="row">
                             <div className="col-md-3">
