@@ -7,6 +7,7 @@ import { AboutViewComponent } from './pages/AboutView';
 import { SearchViewComponent } from './pages/SearchView';
 import { MovieViewComponent } from './pages/MovieView';
 import { NotFoundViewComponent } from './pages/NotFoundView';
+import { ComingSoonViewComponent } from './pages/ComingSoonView';
 
 
 function App() {
@@ -22,10 +23,12 @@ function App() {
         .then(response => response.json())
         .then(data => {
           setSearchResults(data.results)
+          //console.log(data.results)
         })
     }
     
   }, [searchText]);
+ 
 
 
   return (
@@ -37,6 +40,7 @@ function App() {
           <Route path="/about" element={<AboutViewComponent/>} />
           <Route path="/search" element={<SearchViewComponent keyword={searchText} searchResults={searchResults}/>} />
           <Route path="/movies/:id" element={<MovieViewComponent/>} />
+          <Route path="/comingSoon" element={<ComingSoonViewComponent/>} />
           <Route path="/404" element={<NotFoundViewComponent/>} />
           <Route path="*" element={<Navigate to='/404' />}/>
         </Routes>

@@ -1,11 +1,31 @@
+:root {
+    --dt-violet: #9461fb;
+    --dt-violet-bg: #712cf9;
+    --dt-indigo: #6610F2;
+    --dt-blue: #0D6EFD;
+    --dt-blue-bg: #084298;
+    --dt-text-light: #fff;
+    --dt-callout-code-color: #e685b5;
+    --dt-bg-primary: #212529;
+    --dt-bg-secondary: #0f1113;
+}
+
 .hero-container {
     position: relative;
     z-index: 100;
+    background-color: var(--dt-bg-primary);
+    color: var(--dt-text-light);
 }
 
 .hero-text {
     position: relative;
     z-index: 200;
+}
+
+.hero-subtext {
+    position: relative;
+    z-index: 200;
+    font-weight: 300;
 }
 
 .hero-backdrop{
@@ -17,4 +37,88 @@
     background-size: cover;
     background-position: center center;
     opacity: 0.4;
+}
+
+.home-btn {
+    color: var(--dt-text-light);
+    background-color: var(--dt-indigo);
+}
+
+.btn {
+    color: var(--dt-text-light);
+    background-color: var(--dt-indigo);
+    border: none;
+} 
+
+.intro-text {
+    text-align: justify;
+}
+
+.Home-Component {
+    background: radial-gradient(
+        circle at right,
+        #670df7af 3%,
+        #0d6dfd85 10%,
+        #fff 25%
+    );
+    backdrop-filter: blur(80px);
+    --webkit-backdrop-filter: blur(80px);
+}
+
+.PopularMovies-Container {
+    background: radial-gradient(
+        circle at left,
+        #670df7af 7%,
+        #0d6dfd85 14%,
+        #fff 65%
+    );
+    backdrop-filter: blur(80px);
+    --webkit-backdrop-filter: blur(80px);
+}
+
+.About-Component {
+    background: radial-gradient(
+        circle at left,
+        #670df7af 7%,
+        #0d6dfd85 14%,
+        #fff 65%
+    );
+    backdrop-filter: blur(80px);
+    --webkit-backdrop-filter: blur(80px);
+}
+
+.Coming-Soon-Component {
+    background: radial-gradient(
+        circle at left,
+        #670df7af 7%,
+        #0d6dfd85 14%,
+        #fff 65%
+    );
+    backdrop-filter: blur(80px);
+    --webkit-backdrop-filter: blur(80px);
+}
+
+.Movie-Component {
+    height: 100vh;
+    background: radial-gradient(
+        circle at right,
+        #670df7af 2%,
+        #0d6dfd85 14%,
+        #fff 65%
+    );
+    backdrop-filter: blur(80px);
+    --webkit-backdrop-filter: blur(80px);
+}
+
+.movie-card {
+    background: #ffffff60;
+    padding: 2rem;
+    border-radius: 10px;
+    backdrop-filter: blur(80px);
+    --webkit-backdrop-filter: blur(80px);
+}
+
+.genres {
+    background-color: var(--dt-violet-bg);
+    font-size: 16px;
 }
