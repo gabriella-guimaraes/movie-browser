@@ -18,11 +18,10 @@ export function ComingSoonViewComponent() {
     })
   }, []);
 
-  console.log(comingSoonSearch);
 
 
   return (
-    <div className="Comming-Soon-Component">
+    <div className="Coming-Soon-Component">
       <HeroComponent
         text="Coming Soon"
         subtext="Stay Ahead of the Cinematic Curve"
