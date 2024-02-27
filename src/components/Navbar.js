@@ -9,7 +9,7 @@ export function NavbarComponent({searchText, setSearchText}) {
 
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg nav-bar-container">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Movie Browser
@@ -33,12 +33,12 @@ export function NavbarComponent({searchText, setSearchText}) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">
+              <Link className="nav-link active" to="/about">
                 About
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link disabled" to="gosomewhere">
+              <Link className="nav-link active" to="gosomewhere">
                 Coming soon
               </Link>
             </li>
@@ -54,7 +54,7 @@ export function NavbarComponent({searchText, setSearchText}) {
               onChange={updateSearchText}
             />
             <button 
-            className="btn btn-outline-success" 
+            className="btn btn-outline-dark" 
             type="submit"
             onClick={(e) => {
               e.preventDefault();
