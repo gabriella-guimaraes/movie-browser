@@ -38,7 +38,7 @@ export function NavbarComponent({searchText, setSearchText}) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" to="gosomewhere">
+              <Link className="nav-link active" to="/comingSoon">
                 Coming soon
               </Link>
             </li>
