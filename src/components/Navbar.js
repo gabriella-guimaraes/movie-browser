@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 export function NavbarComponent({searchText, setSearchText}) {
   const navigate = useNavigate();
   const updateSearchText = (e) => {
+    e.preventDefault();
     navigate('/search');
     setSearchText(e.target.value);
   };
@@ -52,6 +53,9 @@ export function NavbarComponent({searchText, setSearchText}) {
               aria-label="Search"
               value={searchText}
               onChange={updateSearchText}
+              maxLength="50"
+              pattern="[a-zA-Z0-9\s]+"
+              required
             />
             <button 
             className="btn btn-outline-dark" 
