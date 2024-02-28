@@ -27,3 +27,8 @@ And then run the project using the following command,
 $ npm run start
 
 ```
+
+<h2 id="upcoming"> 🎬 Upcoming features:</h2>
+<li>Movie Cast</li>
+<li>Community features</li>
+<li>Mobile update</li>
