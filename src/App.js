@@ -8,6 +8,8 @@ import { SearchViewComponent } from './pages/SearchView';
 import { MovieViewComponent } from './pages/MovieView';
 import { NotFoundViewComponent } from './pages/NotFoundView';
 import { ComingSoonViewComponent } from './pages/ComingSoonView';
+import { LoginViewComponent } from './pages/LoginView';
+import { RegisterViewComponent } from './pages/RegisterView';
 
 
 function App() {
@@ -41,6 +43,8 @@ function App() {
           <Route path="/search" element={<SearchViewComponent keyword={searchText} searchResults={searchResults}/>} />
           <Route path="/movies/:id" element={<MovieViewComponent/>} />
           <Route path="/comingSoon" element={<ComingSoonViewComponent/>} />
+          <Route path='/login' element={<LoginViewComponent/>}/>
+          <Route path='/register' element={<RegisterViewComponent/>} />
           <Route path="/404" element={<NotFoundViewComponent/>} />
           <Route path="*" element={<Navigate to='/404' />}/>
         </Routes>
