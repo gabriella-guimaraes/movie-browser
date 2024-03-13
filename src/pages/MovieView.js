@@ -101,3 +101,9 @@ export function MovieViewComponent() {
 
   return renderMovieDetails();
 }
+
+// TODO: Implementar mais informações sobre o filme!
+// - Cast
+// - Algumas imagens?
+// - Budget do filme
+// Avaliações - talvez um badge ao lado da imagem?
