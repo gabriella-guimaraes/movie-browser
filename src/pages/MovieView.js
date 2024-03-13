@@ -2,6 +2,8 @@ import { HeroComponent } from "../components/Hero";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import styles from "../css/movieView.module.css";
+
 export function MovieViewComponent() {
   const { id } = useParams();
 
@@ -61,7 +63,7 @@ export function MovieViewComponent() {
       ) || <span>N/A</span>;
 
       return (
-        <div className="Movie-Component">
+        <div className={styles.movieComponent}>
           <HeroComponent
             text={movieDetails.original_title}
             backdrop={backdropUrl}

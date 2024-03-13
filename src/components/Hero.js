@@ -1,14 +1,16 @@
+import styles from "../css/hero.module.css";
+
 export function HeroComponent({ text, backdrop, subtext, darkTheme }) {
   function renderBackground() {
     if (darkTheme === true) {
       return (
         <div>
-          <header className="bg-dark text-light p-5 hero-container">
-            <h1 className="hero-text">{text}</h1>
-            <h3 className="hero-subtext">{subtext}</h3>
+          <header className="bg-dark text-light p-5" id={styles.heroContainer}>
+            <h1 className={styles.heroText}>{text}</h1>
+            <h3 className={styles.heroSubtext}>{subtext}</h3>
             {backdrop && (
               <div
-                className="hero-backdrop"
+                className={styles.heroBackdrop}
                 style={{ backgroundImage: `url(${backdrop})` }}
               ></div>
             )}
@@ -18,12 +20,12 @@ export function HeroComponent({ text, backdrop, subtext, darkTheme }) {
     } else {
       return(
         <div>
-        <header className=" p-5 hero-container">
-          <h1 className="hero-text">{text}</h1>
-          <h3 className="hero-subtext">{subtext}</h3>
+        <header className=" p-5" id={styles.heroContainer}>
+          <h1 className={styles.heroText}>{text}</h1>
+          <h3 className={styles.heroSubtext}>{subtext}</h3>
           {backdrop && (
             <div
-              className="hero-backdrop"
+            className={styles.heroBackdrop}
               style={{ backgroundImage: `url(${backdrop})` }}
             ></div>
           )}

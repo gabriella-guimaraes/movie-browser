@@ -1,0 +1,28 @@
+#heroContainer {
+    position: relative;
+    z-index: 100;
+    /* background-color: var(--dt-bg-primary);
+    color: var(--dt-text-light); */
+}
+
+.heroText {
+    position: relative;
+    z-index: 200;
+}
+
+.heroSubtext {
+    position: relative;
+    z-index: 200;
+    font-weight: 300;
+}
+
+.heroBackdrop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.4;
+}

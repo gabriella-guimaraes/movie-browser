@@ -1,0 +1,10 @@
+.aboutComponent {
+    background: radial-gradient(
+        circle at right,
+        #670df7af 7%,
+        #0d6dfd85 14%,
+        #fff 65%
+    );
+    backdrop-filter: blur(80px);
+    --webkit-backdrop-filter: blur(80px);
+}

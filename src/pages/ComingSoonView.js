@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { HeroComponent } from "../components/Hero";
 import { MovieCardComponent } from "../components/MovieCard";
 
+import styles from "../css/comingSoon.module.css";
+
 export function ComingSoonViewComponent() {
   const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
   const pages = 5;
@@ -21,7 +23,7 @@ export function ComingSoonViewComponent() {
 
 
   return (
-    <div className="Coming-Soon-Component">
+    <div className={styles.comingSoonComponent}>
       <HeroComponent
         text="Coming Soon"
         subtext="Stay Ahead of the Cinematic Curve"

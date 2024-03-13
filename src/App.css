@@ -10,39 +10,6 @@
     --dt-bg-secondary: #0f1113;
 }
 
-.hero-container {
-    position: relative;
-    z-index: 100;
-    /* background-color: var(--dt-bg-primary);
-    color: var(--dt-text-light); */
-}
-
-.hero-text {
-    position: relative;
-    z-index: 200;
-}
-
-.hero-subtext {
-    position: relative;
-    z-index: 200;
-    font-weight: 300;
-}
-
-.hero-backdrop{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-    opacity: 0.4;
-}
-
-.HeaderImage {
-    max-width: 90%;
-    height: auto;
-}
 
 .home-btn {
     color: var(--dt-text-light);
@@ -59,55 +26,11 @@
     text-align: justify;
 }
 
-.Home-Component {
-    background: radial-gradient(
-        circle at right,
-        #670df7af 3%,
-        #0d6dfd85 10%,
-        #fff 25%
-    );
-    backdrop-filter: blur(80px);
-    --webkit-backdrop-filter: blur(80px);
-}
 
 .PopularMovies-Container {
     background: radial-gradient(
         circle at left,
         #670df7af 7%,
-        #0d6dfd85 14%,
-        #fff 65%
-    );
-    backdrop-filter: blur(80px);
-    --webkit-backdrop-filter: blur(80px);
-}
-
-.About-Component {
-    background: radial-gradient(
-        circle at left,
-        #670df7af 7%,
-        #0d6dfd85 14%,
-        #fff 65%
-    );
-    backdrop-filter: blur(80px);
-    --webkit-backdrop-filter: blur(80px);
-}
-
-.Coming-Soon-Component {
-    background: radial-gradient(
-        circle at left,
-        #670df7af 7%,
-        #0d6dfd85 14%,
-        #fff 65%
-    );
-    backdrop-filter: blur(80px);
-    --webkit-backdrop-filter: blur(80px);
-}
-
-.Movie-Component {
-    height: 100vh;
-    background: radial-gradient(
-        circle at right,
-        #670df7af 2%,
         #0d6dfd85 14%,
         #fff 65%
     );

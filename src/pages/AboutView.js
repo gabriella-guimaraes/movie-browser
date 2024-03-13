@@ -1,8 +1,10 @@
 import { HeroComponent } from "../components/Hero";
 
+import styles from "../css/about.module.css";
+
 export function AboutViewComponent() {
   return (
-    <div className="About-Component">
+    <div className={styles.aboutComponent}>
       <HeroComponent text="About Movie Browser" darkTheme={true}/>
       <div className="container">
         <div className="row">

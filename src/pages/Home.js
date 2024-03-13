@@ -1,10 +1,12 @@
 import { HeroComponent } from "../components/Hero";
 import { PopularMoviesComponent } from "../components/PopularMovies";
 
+import styles from "../css/home.module.css"
+
 export function HomeComponent() {
   return (
     <>
-      <div className="Home-Component">
+      <div className={styles.homeComponent}>
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-6 col-md-6 order-lg-1 order-md-1">
@@ -28,23 +30,13 @@ export function HomeComponent() {
             <div class="col-lg-6 col-md-6 order-lg-2 order-md-2">
               <img
                 src="../Images/movieBrowser-concept-art7.png"
-                class="float-right HeaderImage"
+                className="float-right"
+                id={styles.headerImage}
                 alt="Movie Browser Ilustration"
               />
             </div>
           </div>
         </div>
-        {/* <div className="Header-Wrapper container">
-          <div className="row align-items-center">
-            <div className="col-lg-12">
-              <HeroComponent
-                text="Welcome to Movie Browser"
-                subtext="Your Gateway to the Cinematic World!"
-              />
-              <img className="HeaderImage" src="../Images/movieBrowser-concept-art7.png" alt="Movie Browser Illustration" />
-            </div>
-          </div>
-        </div> */}
         <div className="container">
           <div className="row row-cols-1">
             <div className="col-lg-11 offset-lg-2 m-5">
