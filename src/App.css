@@ -13,8 +13,8 @@
 .hero-container {
     position: relative;
     z-index: 100;
-    background-color: var(--dt-bg-primary);
-    color: var(--dt-text-light);
+    /* background-color: var(--dt-bg-primary);
+    color: var(--dt-text-light); */
 }
 
 .hero-text {
@@ -37,6 +37,11 @@
     background-size: cover;
     background-position: center center;
     opacity: 0.4;
+}
+
+.HeaderImage {
+    max-width: 90%;
+    height: auto;
 }
 
 .home-btn {
