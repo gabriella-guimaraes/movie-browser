@@ -134,7 +134,7 @@ export function MovieViewComponent() {
                     }`}
                     onClick={() => setActiveTab("section1")}
                   >
-                    Active
+                    Cast
                   </button>
                 </li>
                 <li className="nav-item">
