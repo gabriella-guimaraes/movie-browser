@@ -79,11 +79,11 @@ export function MovieViewComponent() {
       const renderComponent = () => {
         switch (activeTab) {
           case "section1":
-            return <CastComponent movieCast={movieCast} />;
-          case "section2":
             return <RecommendationsComponent recommendations={recommendations} />;
-          case "section3":
-            return <p>Renderização 3</p>;
+          case "section2":
+            return <CastComponent movieCast={movieCast} />;
+          // case "section3":
+          //   return <p>Renderização 3</p>;
           default:
             return null;
         }
@@ -130,7 +130,7 @@ export function MovieViewComponent() {
                 </ul>
               </div>
             </div>
-            <div className="moreSectionWrapper">
+            <div className="moreSectionWrapper mt-5">
               <ul className="nav nav-tabs">
                 <li className="nav-item">
                   <button
@@ -139,7 +139,7 @@ export function MovieViewComponent() {
                     }`}
                     onClick={() => setActiveTab("section1")}
                   >
-                    Cast
+                    Recommendations
                   </button>
                 </li>
                 <li className="nav-item">
@@ -149,19 +149,19 @@ export function MovieViewComponent() {
                     }`}
                     onClick={() => setActiveTab("section2")}
                   >
-                    Recommendations
+                    Cast
                   </button>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <button
                     className={`nav-link ${
                       activeTab === "section3" ? "active" : ""
                     }`}
                     onClick={() => setActiveTab("section3")}
                   >
-                    Link
+                    Videos
                   </button>
-                </li>
+                </li> */}
               </ul>
               {renderComponent()}
             </div>
