@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { MovieCardComponent } from "./MovieCard";
 
+import styles from "../css/popularMovies.module.css";
+
 export function PopularMoviesComponent() {
   const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
   const pages = 5;
@@ -19,7 +21,7 @@ export function PopularMoviesComponent() {
   }, []);
 
   return (
-    <div className="PopularMovies-Container">
+    <div className={styles.popularMoviesContainer}>
       <div className="container">
         <div className="row row-cols-1">
           <div className="col-lg-11 offset-lg-2 m-5">

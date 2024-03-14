@@ -1,23 +1,40 @@
 import { HeroComponent } from "../components/Hero";
+import { fetchMovieDetails, fetchCredits, fetchRecommendations } from "../api/moviesApi";
+import { CastComponent } from "../components/Cast";
+import { RecommendationsComponent } from "../components/Recommendations";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+
+import styles from "../css/movieView.module.css";
 
 export function MovieViewComponent() {
   const { id } = useParams();
 
   const [movieDetails, setMovieDetails] = useState({});
+  const [movieCast, setMovieCast] = useState({});
+  const [recommendations, setRecommendations] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
+  const [activeTab, setActiveTab] = useState("section1");
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMovieDetails(data);
+    async function fetchData() {
+      try {
+        const getDetails = await fetchMovieDetails(id);
+        setMovieDetails(getDetails);
         setIsLoading(false);
-      });
+
+        // Chamando a segunda solicitação Fetch de Créditos após a primeira ser bem-sucedida
+        const getCredits = await fetchCredits(id);
+        setMovieCast(getCredits);
+
+        const getRecommendations = await fetchRecommendations(id);
+        setRecommendations(getRecommendations);
+      } catch (error) {
+        console.error("Ocorreu um erro:", error);
+      }
+    }
+
+    fetchData();
   }, [id]);
 
   function renderMovieDetails() {
@@ -49,8 +66,6 @@ export function MovieViewComponent() {
         }
       }
 
-      //const productionCompanyName = movieDetails.production_companies[0]?.name // 'N/A' if the return is null;
-
       const productionCompanies = movieDetails.production_companies?.map(
         (company, index) => (
           <span key={index}>
@@ -60,19 +75,43 @@ export function MovieViewComponent() {
         )
       ) || <span>N/A</span>;
 
+      // Função para renderizar o componente com base na aba ativa
+      const renderComponent = () => {
+        switch (activeTab) {
+          case "section1":
+            return <RecommendationsComponent recommendations={recommendations} />;
+          case "section2":
+            return <CastComponent movieCast={movieCast} />;
+          // case "section3":
+          //   return <p>Renderização 3</p>;
+          default:
+            return null;
+        }
+      };
+
       return (
-        <div className="Movie-Component">
+        <div className={styles.movieComponent}>
           <HeroComponent
             text={movieDetails.original_title}
             backdrop={backdropUrl}
           />
-          <div className="container my-5 movie-card">
+          <div className="container movie-card">
             <div className="row">
               <div className="col-md-3">{poster(movieDetails)}</div>
               <div className="col-md-9">
                 <h2>{movieDetails.original_title}</h2>
                 <span>{productionCompanies}</span>
                 <p className="lead intro-text mt-3">{movieDetails.overview}</p>
+                <figure className="text-end m-3">
+                  <blockquote className="blockquote">
+                    <p>{movieDetails.tagline}</p>
+                  </blockquote>
+                  <figcaption className="blockquote-footer">
+                    <cite title="Source Title">
+                      {movieDetails.original_title}
+                    </cite>
+                  </figcaption>
+                </figure>
                 <p className="lead">
                   <b>Release date: </b>
                   {movieDetails.release_date}
@@ -83,13 +122,48 @@ export function MovieViewComponent() {
                 </p>
                 <h3>Genres:</h3>
                 <ul className="list-inline">
-                  {movieDetails.genres?.map((genre, index) => (
-                    <span key={index} className="badge list-inline-item genres">
+                  {movieDetails.genres?.map((genre) => (
+                    <span key={genre.id} className="badge list-inline-item genres">
                       {genre.name}
                     </span>
                   ))}
                 </ul>
               </div>
+            </div>
+            <div className="moreSectionWrapper mt-5">
+              <ul className="nav nav-tabs">
+                <li className="nav-item">
+                  <button
+                    className={`nav-link ${
+                      activeTab === "section1" ? "active" : ""
+                    }`}
+                    onClick={() => setActiveTab("section1")}
+                  >
+                    Recommendations
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className={`nav-link ${
+                      activeTab === "section2" ? "active" : ""
+                    }`}
+                    onClick={() => setActiveTab("section2")}
+                  >
+                    Cast
+                  </button>
+                </li>
+                {/* <li className="nav-item">
+                  <button
+                    className={`nav-link ${
+                      activeTab === "section3" ? "active" : ""
+                    }`}
+                    onClick={() => setActiveTab("section3")}
+                  >
+                    Videos
+                  </button>
+                </li> */}
+              </ul>
+              {renderComponent()}
             </div>
           </div>
         </div>

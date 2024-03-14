@@ -1,0 +1,15 @@
+#headerImage {
+    max-width: 90%;
+    height: auto;
+}
+
+.homeComponent {
+    background: radial-gradient(
+        circle at right,
+        #670df7af 3%,
+        #0d6dfd85 10%,
+        #fff 25%
+    );
+    backdrop-filter: blur(80px);
+    --webkit-backdrop-filter: blur(80px);
+}

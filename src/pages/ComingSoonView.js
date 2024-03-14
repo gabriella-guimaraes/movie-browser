@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { HeroComponent } from "../components/Hero";
 import { MovieCardComponent } from "../components/MovieCard";
 
+import styles from "../css/comingSoon.module.css";
+
 export function ComingSoonViewComponent() {
   const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
   const pages = 5;
@@ -11,7 +13,7 @@ export function ComingSoonViewComponent() {
 
   //Get upcoming movies
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&include_video=false&language=en-US&${pages}&primary_release_year=2024&primary_release_date.gte=${releaseDate}&sort_by=popularity.desc`)
+    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&include_adult=false&include_video=false&language=en-US&${pages}`)
     .then((response) => response.json())
     .then((data) => {
         setComingSoonSearch(data.results);
@@ -21,7 +23,7 @@ export function ComingSoonViewComponent() {
 
 
   return (
-    <div className="Coming-Soon-Component">
+    <div className={styles.comingSoonComponent}>
       <HeroComponent
         text="Coming Soon"
         subtext="Stay Ahead of the Cinematic Curve"
