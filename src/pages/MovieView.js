@@ -1,4 +1,5 @@
 import { HeroComponent } from "../components/Hero";
+import { fetchMovieDetails, fetchCredits } from "../api/moviesApi";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -8,18 +9,26 @@ export function MovieViewComponent() {
   const { id } = useParams();
 
   const [movieDetails, setMovieDetails] = useState({});
+  const [movieCast, setMovieCast] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
+  const [activeTab, setActiveTab] = useState('section1');
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMovieDetails(data);
+    async function fetchData() {
+      try {
+        const details = await fetchMovieDetails(id);
+        setMovieDetails(details);
         setIsLoading(false);
-      });
+
+        // Chamando a segunda solicitação Fetch de Créditos após a primeira ser bem-sucedida
+        const credits = await fetchCredits(id);
+        setMovieCast(credits);
+      } catch (error) {
+        console.error("Ocorreu um erro:", error);
+      }
+    }
+
+    fetchData();
   }, [id]);
 
   function renderMovieDetails() {
@@ -51,8 +60,6 @@ export function MovieViewComponent() {
         }
       }
 
-      //const productionCompanyName = movieDetails.production_companies[0]?.name // 'N/A' if the return is null;
-
       const productionCompanies = movieDetails.production_companies?.map(
         (company, index) => (
           <span key={index}>
@@ -62,19 +69,44 @@ export function MovieViewComponent() {
         )
       ) || <span>N/A</span>;
 
+      // Função para renderizar o componente com base na aba ativa
+      const renderComponent = () => {
+        console.log("componente clicado!")
+        switch (activeTab) {
+          case 'section1':
+            return <p>Renderização 1</p>
+          case 'section2':
+            return <p>Renderização 2</p>
+          case 'section3':
+            return <p>Renderização 3</p>
+          default:
+            return null;
+        }
+      };
+
       return (
         <div className={styles.movieComponent}>
           <HeroComponent
             text={movieDetails.original_title}
             backdrop={backdropUrl}
           />
-          <div className="container my-5 movie-card">
+          <div className="container movie-card">
             <div className="row">
               <div className="col-md-3">{poster(movieDetails)}</div>
               <div className="col-md-9">
                 <h2>{movieDetails.original_title}</h2>
                 <span>{productionCompanies}</span>
                 <p className="lead intro-text mt-3">{movieDetails.overview}</p>
+                <figure className="text-end m-3">
+                  <blockquote className="blockquote">
+                    <p>{movieDetails.tagline}</p>
+                  </blockquote>
+                  <figcaption className="blockquote-footer">
+                    <cite title="Source Title">
+                      {movieDetails.original_title}
+                    </cite>
+                  </figcaption>
+                </figure>
                 <p className="lead">
                   <b>Release date: </b>
                   {movieDetails.release_date}
@@ -92,6 +124,27 @@ export function MovieViewComponent() {
                   ))}
                 </ul>
               </div>
+            </div>
+            <div className="moreSectionWrapper">
+              <p>More infos will appear here!</p>
+              <ul className="nav nav-tabs" activekey={activeTab} onClick={(key) => setActiveTab(key)}>
+                <li className="nav-item">
+                  <button className="nav-link" eventkey="section1">
+                    Active
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link" eventkey="section2">
+                    Link
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link" eventkey="section3">
+                    Link
+                  </button>
+                </li>
+              </ul>
+                {renderComponent()}
             </div>
           </div>
         </div>
