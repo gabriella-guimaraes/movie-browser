@@ -1,5 +1,6 @@
 import { HeroComponent } from "../components/Hero";
 import { fetchMovieDetails, fetchCredits } from "../api/moviesApi";
+import { CastComponent } from "../components/Cast";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -11,7 +12,7 @@ export function MovieViewComponent() {
   const [movieDetails, setMovieDetails] = useState({});
   const [movieCast, setMovieCast] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('section1');
+  const [activeTab, setActiveTab] = useState("section1");
 
   useEffect(() => {
     async function fetchData() {
@@ -71,14 +72,13 @@ export function MovieViewComponent() {
 
       // Função para renderizar o componente com base na aba ativa
       const renderComponent = () => {
-        console.log("componente clicado!")
         switch (activeTab) {
-          case 'section1':
-            return <p>Renderização 1</p>
-          case 'section2':
-            return <p>Renderização 2</p>
-          case 'section3':
-            return <p>Renderização 3</p>
+          case "section1":
+            return <CastComponent movieCast={movieCast} />;
+          case "section2":
+            return <p>Renderização 2</p>;
+          case "section3":
+            return <p>Renderização 3</p>;
           default:
             return null;
         }
@@ -117,8 +117,8 @@ export function MovieViewComponent() {
                 </p>
                 <h3>Genres:</h3>
                 <ul className="list-inline">
-                  {movieDetails.genres?.map((genre, index) => (
-                    <span key={index} className="badge list-inline-item genres">
+                  {movieDetails.genres?.map((genre) => (
+                    <span key={genre.id} className="badge list-inline-item genres">
                       {genre.name}
                     </span>
                   ))}
@@ -126,25 +126,39 @@ export function MovieViewComponent() {
               </div>
             </div>
             <div className="moreSectionWrapper">
-              <p>More infos will appear here!</p>
-              <ul className="nav nav-tabs" activekey={activeTab} onClick={(key) => setActiveTab(key)}>
+              <ul className="nav nav-tabs">
                 <li className="nav-item">
-                  <button className="nav-link" eventkey="section1">
+                  <button
+                    className={`nav-link ${
+                      activeTab === "section1" ? "active" : ""
+                    }`}
+                    onClick={() => setActiveTab("section1")}
+                  >
                     Active
                   </button>
                 </li>
                 <li className="nav-item">
-                  <button className="nav-link" eventkey="section2">
+                  <button
+                    className={`nav-link ${
+                      activeTab === "section2" ? "active" : ""
+                    }`}
+                    onClick={() => setActiveTab("section2")}
+                  >
                     Link
                   </button>
                 </li>
                 <li className="nav-item">
-                  <button className="nav-link" eventkey="section3">
+                  <button
+                    className={`nav-link ${
+                      activeTab === "section3" ? "active" : ""
+                    }`}
+                    onClick={() => setActiveTab("section3")}
+                  >
                     Link
                   </button>
                 </li>
               </ul>
-                {renderComponent()}
+              {renderComponent()}
             </div>
           </div>
         </div>

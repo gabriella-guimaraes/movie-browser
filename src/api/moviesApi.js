@@ -16,15 +16,17 @@ export async function fetchMovieDetails(id) {
 }
 
 export async function fetchCredits(id) {
-  try {
-    const response = await fetch(`${url}${id}/credits?api_key=${API_KEY}&language=en-US`);
-    if (!response.ok) {
-      throw new Error("Erro ao obter créditos do filme");
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+      );
+      if (!response.ok) {
+        throw new Error("Erro ao obter créditos do filme");
+      }
+      const data = await response.json();
+      return data.cast; // Retorna apenas a parte do elenco dos dados recebidos
+    } catch (error) {
+      console.error("Ocorreu um erro ao obter créditos:", error);
+      throw error;
     }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Ocorreu um erro:", error);
-    throw error;
   }
-}
