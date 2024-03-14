@@ -30,3 +30,19 @@ export async function fetchCredits(id) {
       throw error;
     }
   }
+
+  export async function fetchRecommendations(id) {
+    try {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
+      );
+      if(!response.ok) {
+        throw new Error("Ocorreu um erro ao obter recomendações");
+      }
+      const data = await response.json();
+      return data.results;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }

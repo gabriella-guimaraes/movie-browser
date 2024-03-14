@@ -1,6 +1,7 @@
 import { HeroComponent } from "../components/Hero";
-import { fetchMovieDetails, fetchCredits } from "../api/moviesApi";
+import { fetchMovieDetails, fetchCredits, fetchRecommendations } from "../api/moviesApi";
 import { CastComponent } from "../components/Cast";
+import { RecommendationsComponent } from "../components/Recommendations";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
@@ -11,19 +12,23 @@ export function MovieViewComponent() {
 
   const [movieDetails, setMovieDetails] = useState({});
   const [movieCast, setMovieCast] = useState({});
+  const [recommendations, setRecommendations] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("section1");
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const details = await fetchMovieDetails(id);
-        setMovieDetails(details);
+        const getDetails = await fetchMovieDetails(id);
+        setMovieDetails(getDetails);
         setIsLoading(false);
 
         // Chamando a segunda solicitação Fetch de Créditos após a primeira ser bem-sucedida
-        const credits = await fetchCredits(id);
-        setMovieCast(credits);
+        const getCredits = await fetchCredits(id);
+        setMovieCast(getCredits);
+
+        const getRecommendations = await fetchRecommendations(id);
+        setRecommendations(getRecommendations);
       } catch (error) {
         console.error("Ocorreu um erro:", error);
       }
@@ -76,7 +81,7 @@ export function MovieViewComponent() {
           case "section1":
             return <CastComponent movieCast={movieCast} />;
           case "section2":
-            return <p>Renderização 2</p>;
+            return <RecommendationsComponent recommendations={recommendations} />;
           case "section3":
             return <p>Renderização 3</p>;
           default:
@@ -144,7 +149,7 @@ export function MovieViewComponent() {
                     }`}
                     onClick={() => setActiveTab("section2")}
                   >
-                    Link
+                    Recommendations
                   </button>
                 </li>
                 <li className="nav-item">
@@ -168,9 +173,3 @@ export function MovieViewComponent() {
 
   return renderMovieDetails();
 }
-
-// TODO: Implementar mais informações sobre o filme!
-// - Cast
-// - Algumas imagens?
-// - Budget do filme
-// Avaliações - talvez um badge ao lado da imagem?
