@@ -5,7 +5,7 @@ import styles from "../css/about.module.css";
 export function AboutViewComponent() {
   return (
     <div className={styles.aboutComponent}>
-      <HeroComponent text="About Movie Browser" darkTheme={true}/>
+      <HeroComponent text="About Movie Browser" />
       <div className="container">
         <div className="row">
           <div className="col-lg-11 offset-lg-2 m-5">

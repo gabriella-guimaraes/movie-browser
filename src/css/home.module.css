@@ -1,15 +1,20 @@
 #headerImage {
     max-width: 90%;
     height: auto;
+    margin-left: 1rem;
 }
 
 .homeComponent {
+    padding: 1.75rem;
+}
+
+/* .homeComponent {
     background: radial-gradient(
         circle at right,
-        #670df7af 3%,
-        #0d6dfd85 10%,
-        #fff 25%
+        #670df762 7%,
+        #0d6dfd5d 14%,
+        #fff 65%
     );
     backdrop-filter: blur(80px);
     --webkit-backdrop-filter: blur(80px);
-}
+} */
