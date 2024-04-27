@@ -1,22 +1,18 @@
 import { useState, useEffect } from "react";
 import { MovieCardComponent } from "./MovieCard";
+import { fetchPopularMovies } from "../api/moviesApi";
 
 import styles from "../css/popularMovies.module.css";
 
 export function PopularMoviesComponent() {
-  const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
-  const pages = 5;
 
   const [popularMoviesSearch, setPopularMoviesSearch] = useState([]);
 
   //Get movies by Popularity
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=false&include_video=false&language=en-US&${pages}&sort_by=popularity.desc`
-    )
-      .then((response) => response.json())
+    fetchPopularMovies()
       .then((data) => {
-        setPopularMoviesSearch(data.results);
+        setPopularMoviesSearch(data);
       });
   }, []);
 
