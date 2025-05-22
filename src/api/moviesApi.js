@@ -1,9 +1,23 @@
-const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
-const url = "https://api.themoviedb.org/3/";
+const url = "https://api.themoviedb.org/3";
+
+const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2JmZDQ2MTc0NjI4NTA3NjJiYTA0NTlkMWVkMjY2ZiIsIm5iZiI6MTcwODczMzcwMi42ODYsInN1YiI6IjY1ZDkzNTA2YjA0NjA1MDE0OTM0NTJiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1bnesA0MEgiQiDy5wirdYN8fQ5Z3J2ztqOzFYgMaUVI'
+      }
+};
 
 export async function fetchMovieDetails(id) {
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwY2JmZDQ2MTc0NjI4NTA3NjJiYTA0NTlkMWVkMjY2ZiIsIm5iZiI6MTcwODczMzcwMi42ODYsInN1YiI6IjY1ZDkzNTA2YjA0NjA1MDE0OTM0NTJiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1bnesA0MEgiQiDy5wirdYN8fQ5Z3J2ztqOzFYgMaUVI'
+    }
+  };
   try {
-    const response = await fetch(`${url}/movie/${id}?api_key=${API_KEY}&language=en-US`);
+    const response = await fetch(`${url}/movie/${id}`, options);
     if (!response.ok) {
       throw new Error("Erro ao obter detalhes do filme");
     }
@@ -18,7 +32,7 @@ export async function fetchMovieDetails(id) {
 export async function fetchCredits(id) {
     try {
       const response = await fetch(
-        `${url}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+        `${url}/movie/${id}/credits?language=en-US`, options
       );
       if (!response.ok) {
         throw new Error("Erro ao obter créditos do filme");
@@ -34,7 +48,7 @@ export async function fetchCredits(id) {
   export async function fetchRecommendations(id) {
     try {
       const response = await fetch(
-        `${url}/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
+        `${url}/movie/${id}/recommendations?language=en-US&page=1`, options
       );
       if(!response.ok) {
         throw new Error("Ocorreu um erro ao obter recomendações");
@@ -49,7 +63,7 @@ export async function fetchCredits(id) {
 
   export async function fetchPopularMovies(pages = 5) {
     try {
-      const response = await fetch(`${url}/discover/movie?api_key=${API_KEY}&include_adult=false&include_video=false&language=en-US&${pages}&sort_by=popularity.desc`);
+      const response = await fetch(`${url}/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pages}&sort_by=popularity.desc`, options);
       const data = await response.json();
       return data.results;
 
