@@ -3,6 +3,7 @@ import { HeroComponent } from "../components/Hero";
 import { MovieCardComponent } from "../components/MovieCard";
 
 import styles from "../css/comingSoon.module.css";
+import { fetchUpcomingMovies } from "../api/moviesApi";
 
 export function ComingSoonViewComponent() {
   const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
@@ -13,11 +14,13 @@ export function ComingSoonViewComponent() {
 
   //Get upcoming movies
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&include_adult=false&include_video=false&language=en-US&${pages}`)
-    .then((response) => response.json())
-    .then((data) => {
-        setComingSoonSearch(data.results);
+    fetchUpcomingMovies()
+    .then((results) => {
+      setComingSoonSearch(results);
     })
+    .catch((error) => {
+      console.log("Error fetching upcoming movies:", error);
+    });
   }, []);
 
 

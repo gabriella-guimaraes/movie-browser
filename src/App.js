@@ -10,6 +10,7 @@ import { NotFoundViewComponent } from './pages/NotFoundView';
 import { ComingSoonViewComponent } from './pages/ComingSoonView';
 import { LoginViewComponent } from './pages/LoginView';
 import { RegisterViewComponent } from './pages/RegisterView';
+import { fetchMoviesByKeyword } from './api/moviesApi';
 
 
 function App() {
@@ -18,15 +19,14 @@ function App() {
   const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
-    const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
-
     if(searchText) {
-      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchText}&page=1&include_adult=false`)
-        .then(response => response.json())
-        .then(data => {
-          setSearchResults(data.results)
-          //console.log(data.results)
+      fetchMoviesByKeyword(searchText)
+        .then(results => {
+          setSearchResults(results);
         })
+        .catch(error => {
+          console.log("Error fetching movies:", error);
+        });
     }
     
   }, [searchText]);
