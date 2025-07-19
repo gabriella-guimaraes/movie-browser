@@ -40,7 +40,9 @@ export function ComingSoonViewComponent() {
             <div className="row">
                 {comingSoonSearch.length > 0 ? (
                     comingSoonSearch.map((movie) => (
-                        <MovieCardComponent key={movie.id} movie={movie} />
+                        <div className="col-sm-6 col-md-4 col-lg-4 mb-4" key={movie.id}>
+                          <MovieCardComponent key={movie.id} movie={movie} />
+                        </div>
                     ))
                 ): (
                     <p>Loading...</p>

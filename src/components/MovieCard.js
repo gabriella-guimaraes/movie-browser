@@ -15,7 +15,7 @@ export function MovieCardComponent({ movie }) {
     }
     
   return (
-    <div className="col-lg-4 col-md-3 col-2 my-4">
+    <div className="col-12 my-4">
         <div className="card">
             {poster()}
             <div className="card-body">

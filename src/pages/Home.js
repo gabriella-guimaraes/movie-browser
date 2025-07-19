@@ -34,8 +34,8 @@ export function HomeComponent() {
             </div>
           </div>
         </div> */}
-      </div>
       <PopularMoviesComponent />
+      </div>
     </>
   );
 }

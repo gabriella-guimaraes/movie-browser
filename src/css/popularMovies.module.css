@@ -8,3 +8,12 @@
     backdrop-filter: blur(80px);
     --webkit-backdrop-filter: blur(80px);
 }
+
+.popularMoviesContainer {
+  padding-top: 4rem;
+}
+@media (max-width: 576px) {
+  .popularMoviesContainer {
+    padding-top: 0.5rem;
+  }
+}

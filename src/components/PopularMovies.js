@@ -20,7 +20,7 @@ export function PopularMoviesComponent() {
     <div className={styles.popularMoviesContainer}>
       <div className="container">
         <div className="row row-cols-1">
-          <div className="col-lg-11 offset-lg-2 m-5">
+          <div className="col-lg-12 mt-5">
             <h1>Popular Movies</h1>
             <p className="lead intro-text mb-5">
               Dive into the pulse of the film world with our "Trending Now" section,
@@ -32,7 +32,9 @@ export function PopularMoviesComponent() {
             <div className="row">
               {popularMoviesSearch.length > 0 ? (
                 popularMoviesSearch.map((movie) => (
-                  <MovieCardComponent key={movie.id} movie={movie} />
+                  <div className="col-sm-6 col-md-4 col-lg-4 mb-4" key={movie.id}>
+                    <MovieCardComponent key={movie.id} movie={movie} />
+                  </div>
                 ))
               ) : (
                 <p>Loading...</p>
