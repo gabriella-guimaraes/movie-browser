@@ -1,12 +1,12 @@
 :root {
-    --dt-violet: #9461fb;
+    --dt-violet: #6e06a1;
     --dt-violet-bg: #712cf9;
     --dt-indigo: #6610F2;
-    --dt-blue: #0D6EFD;
+    --dt-blue: #8099fa;
     --dt-blue-bg: #084298;
     --dt-text-light: #fff;
     --dt-callout-code-color: #e685b5;
-    --dt-bg-primary: #212529;
+    --dt-bg-primary: #06050e;
     --dt-bg-secondary: #0f1113;
 }
 
@@ -116,4 +116,14 @@
 
 #searchField {
     background-color: #21252936 !important;
+}
+
+.card {
+    background-color: #0d0b1d;
+    transition: background-color 0.5s, transform 0.5s;
+}
+
+.card:hover {
+    background-color: #120f25;
+    transform: scale(1.05);
 }

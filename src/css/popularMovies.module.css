@@ -1,12 +1,6 @@
 .popularMoviesContainer {
-    background: radial-gradient(
-        circle at left,
-        #670df762 7%,
-        #0d6dfd5d 14%,
-        #fff 65%
-    );
-    backdrop-filter: blur(80px);
-    --webkit-backdrop-filter: blur(80px);
+    background-color: var(--dt-bg-primary);
+    color: var(--dt-text-light);
 }
 
 .popularMoviesContainer {
