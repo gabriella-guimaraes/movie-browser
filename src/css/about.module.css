@@ -1,10 +1,5 @@
 .aboutComponent {
-    background: radial-gradient(
-        circle at right,
-        #670df762 7%,
-        #0d6dfd5d 14%,
-        #fff 65%
-    );
-    backdrop-filter: blur(80px);
-    --webkit-backdrop-filter: blur(80px);
+    background: var(--dt-bg-primary);
+    color: var(--dt-text-light);
+    overflow: hidden;
 }

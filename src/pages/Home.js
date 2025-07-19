@@ -1,4 +1,3 @@
-import { HeroComponent } from "../components/Hero";
 import { PopularMoviesComponent } from "../components/PopularMovies";
 import { BannerComponent } from './../components/Banner';
 
