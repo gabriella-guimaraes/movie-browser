@@ -6,10 +6,6 @@ import styles from "../css/comingSoon.module.css";
 import { fetchUpcomingMovies } from "../api/moviesApi";
 
 export function ComingSoonViewComponent() {
-  const API_KEY = "0cbfd4617462850762ba0459d1ed266f";
-  const pages = 5;
-  const releaseDate = "2024-03-01"
-
   const [comingSoonSearch, setComingSoonSearch] = useState([]);
 
   //Get upcoming movies
