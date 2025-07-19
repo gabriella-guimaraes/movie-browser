@@ -98,3 +98,22 @@
     transform: 0.5;
     scale: 1.1;
 }
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    color: var(--dt-text-light);
+}
+
+#logo {
+    color: var(--dt-indigo);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--dt-text-light);
+}
+
+#searchField {
+    background-color: #21252936 !important;
+}
