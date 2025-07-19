@@ -1,4 +1,3 @@
-import { HeroComponent } from "../components/Hero";
 import { BannerComponent } from './../components/Banner';
 
 import styles from "../css/about.module.css";
@@ -21,7 +20,7 @@ export function AboutViewComponent() {
         </div>
         <div className="container">
           <div className="row">
-            <div className="col-lg-11 offset-lg-2 m-5">
+            <div className="col-lg-12 mt-5">
               <p className="lead intro-text mb-5">
                 Welcome to Movie Browser, the brainchild of a solo developer{" "}
                 <a href="https://github.com/gabriella-guimaraes" target="blank">

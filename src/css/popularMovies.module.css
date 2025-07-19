@@ -3,11 +3,11 @@
     color: var(--dt-text-light);
 }
 
-.popularMoviesContainer {
+/* .popularMoviesContainer {
   padding-top: 4rem;
 }
 @media (max-width: 576px) {
   .popularMoviesContainer {
     padding-top: 0.5rem;
   }
-}
+} */
