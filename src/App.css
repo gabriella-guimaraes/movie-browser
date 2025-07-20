@@ -127,3 +127,10 @@
     background-color: #120f25;
     transform: scale(1.05);
 }
+
+.search-view-component {
+    background: var(--dt-bg-primary);
+    color: var(--dt-text-light);
+    overflow: hidden;
+    min-height: 100vh;
+}

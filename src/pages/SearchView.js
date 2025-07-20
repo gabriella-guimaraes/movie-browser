@@ -11,16 +11,16 @@ export function SearchViewComponent({ keyword, searchResults }) {
     ) 
   });
   return (
-    <div>
+    <div className="text-center pt-5 search-view-component">
     <HeroComponent text={title} />
     {searchResults && searchResults.length > 0 && (
-      <div className="container">
+      <div className="container text-start">
         <div className="row">{movieResults}</div>
       </div>
     )}
     {searchResults && searchResults.length === 0 && (
       <h2 className="p-5">
-        {"Sorry, we couldn't find anything for" + keyword}
+        {"Sorry, we couldn't find anything for " + keyword}
       </h2>
     )}
   </div>
