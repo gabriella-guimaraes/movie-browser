@@ -5,6 +5,7 @@ import GlassSurface from "./GlassSurface";
 export function NavbarComponent({searchText, setSearchText}) {
   const navigate = useNavigate();
   const updateSearchText = (e) => {
+    e.preventDefault();
     navigate('/search');
     setSearchText(e.target.value);
   };
