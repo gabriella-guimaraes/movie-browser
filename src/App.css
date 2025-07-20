@@ -39,11 +39,7 @@
 }
 
 .movie-card {
-    background: #ffffff60;
-    padding: 2rem;
-    border-radius: 10px;
-    backdrop-filter: blur(80px);
-    --webkit-backdrop-filter: blur(80px);
+    padding-top: 2rem;
 }
 
 .genres {
@@ -133,4 +129,17 @@
     color: var(--dt-text-light);
     overflow: hidden;
     min-height: 100vh;
+}
+
+.nav-tabs .nav-link.active {
+    background: var(--dt-bg-primary);
+    color: var(--dt-violet-bg);
+}
+
+.nav-link {
+    color: var(--dt-text-light);
+}
+
+.nav-link:hover {
+    color: var(--dt-violet-bg);
 }
