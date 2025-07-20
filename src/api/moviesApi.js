@@ -75,7 +75,6 @@ export async function fetchPopularMovies(pages = 5) {
 export async function fetchUpcomingMovies() {
   try {
     const response = await fetch(`${url}/movie/upcoming?language=en-US&page=1`, options);
-    console.log(response);
     const data = await response.json();
 
     return data.results;

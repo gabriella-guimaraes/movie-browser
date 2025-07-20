@@ -1,4 +1,5 @@
 import styles from "../css/hero.module.css";
+import DarkVeil from "./DarkVeil";
 
 export function HeroComponent({ text, backdrop, subtext, darkTheme }) {
   function renderBackground() {

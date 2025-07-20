@@ -15,8 +15,8 @@ export function MovieCardComponent({ movie }) {
     }
     
   return (
-    <div className="col-lg-4 col-md-3 col-2 my-4">
-        <div className="card">
+    <div className="col-12 my-4">
+        <div className="card text-light">
             {poster()}
             <div className="card-body">
                 <h5 className="card-title">{movie.original_title}</h5>

@@ -8,6 +8,7 @@
 .heroText {
     position: relative;
     z-index: 200;
+    padding-top: 5vh;
 }
 
 .heroSubtext {
